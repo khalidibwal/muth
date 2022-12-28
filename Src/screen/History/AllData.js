@@ -20,30 +20,26 @@ export default function AllData() {
       <ScrollView>
         {fetchall.map((resp) => {
           return (
-            <Card containerStyle={Styles.cardStyle}>
-              <AirbnbRating
-                reviews={[
-                    "Terrible",
-                    "Bad",
-                    "Good",
-                    "very Good",
-                    "Excelent",
-                  ]}
+            <View style={Styles.borserStyle}>
+              <Card containerStyle={Styles.cardStyle} key={resp.id}>
+                <AirbnbRating
+                  reviews={["Terrible", "Bad", "Good", "very Good", "Excelent"]}
                   defaultRating={resp.rating}
                   isDisabled={true}
-                size={20}
-              />
-              <Text>Rating : {resp.rating}</Text>
-              {resp._biodata_guru_of_user_data.map((teach) => {
-                return (
-                  <View>
-                    <Text>Nama Guru : {teach.guru}</Text>
-                    <Text>Mata Pelajaran : {teach.matpel}</Text>
-                  </View>
-                );
-              })}
-              <Text>komentar : {resp.desc}</Text>
-            </Card>
+                  size={20}
+                />
+                <Text>Rating : {resp.rating}</Text>
+                {resp._biodata_guru_of_user_data.map((teach) => {
+                  return (
+                    <View>
+                      <Text>Nama Guru : {teach.guru}</Text>
+                      <Text>Mata Pelajaran : {teach.matpel}</Text>
+                    </View>
+                  );
+                })}
+                <Text>komentar : {resp.desc}</Text>
+              </Card>
+            </View>
           );
         })}
       </ScrollView>
@@ -55,10 +51,12 @@ const Styles = StyleSheet.create({
   container: {
     justifyContent: "center",
     alignSelf: "center",
-    marginTop:30,
-    marginBottom:30
   },
   cardStyle: {
     borderRadius: 10,
+  },
+  borserStyle: {
+    marginTop: 10,
+    marginBottom: 10,
   },
 });

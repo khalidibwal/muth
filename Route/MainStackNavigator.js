@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons } from "@expo/vector-icons"
+import { Ionicons, AntDesign } from "@expo/vector-icons"
 import HomeScreen from "../Src/screen/HomeScreen";
 import Login from "../Src/screen/Auth/Login";
 import Register from "../Src/screen/Auth/SignUp";
@@ -34,11 +34,29 @@ function MyTabs() {
         tabBarLabel: ({ focused }) => {
           return <Text style={Styles.labelFont}>Home</Text>;
         },
+        tabBarIcon: ({ focused }) => {
+          return (
+            <AntDesign
+              name="home"
+              size={17}
+              color={focused ? "#D1B000" : "grey"}
+            />
+          );
+        },
         headerShown: false,
       }}/>
       <Tab.Screen name="History" component={AllData} options={{
         tabBarLabel: ({ focused }) => {
           return <Text style={Styles.labelFont}>History</Text>;
+        },
+        tabBarIcon: ({ focused }) => {
+          return (
+            <AntDesign
+              name="database"
+              size={17}
+              color={focused ? "#D1B000" : "grey"}
+            />
+          );
         },
         headerShown: false,
       }}/>
