@@ -8,10 +8,12 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Rating, AirbnbRating } from "@rneui/themed";
+import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import { Card } from "@rneui/themed";
 
 export default function Ratings(props) {
+  const navigation = useNavigation();
   const { matkul, user_id, teacherId } = props.route.params;
   const [rated, setRating] = useState(1)
   const [description, setdesc] = useState('')
@@ -37,6 +39,7 @@ export default function Ratings(props) {
         )
         .then((response) => {
           console.warn(response)
+          navigation.navigate('alldata')
           // navigation.navigate('rate',
           // {user_id:response.data.user_data_id, teacherId: response.data.id})
         })

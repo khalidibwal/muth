@@ -30,8 +30,18 @@ const ImageHeader = () => (
 function MyTabs() {
   return (
     <Tab.Navigator initialRouteName="home">
-      <Tab.Screen name="homescreen" component={HomeScreen} />
-      <Tab.Screen name="History" component={AllData} />
+      <Tab.Screen name="homescreen" component={HomeScreen} options={{
+        tabBarLabel: ({ focused }) => {
+          return <Text style={Styles.labelFont}>Home</Text>;
+        },
+        headerShown: false,
+      }}/>
+      <Tab.Screen name="History" component={AllData} options={{
+        tabBarLabel: ({ focused }) => {
+          return <Text style={Styles.labelFont}>History</Text>;
+        },
+        headerShown: false,
+      }}/>
     </Tab.Navigator>
   );
 }
@@ -65,6 +75,11 @@ export default function MainStackNavigator() {
           component={Ratings}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="alldata"
+          component={AllData}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -75,5 +90,10 @@ const Styles = StyleSheet.create({
     alignSelf: "flex-end",
     right: 30,
     top: 50,
+  },
+  labelFont: {
+    textTransform: "uppercase",
+    fontSize: 7,
+    marginBottom: 4,
   },
 })
