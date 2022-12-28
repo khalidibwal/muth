@@ -60,22 +60,27 @@ export default function HomeScreen(props) {
   }
   return (
     <View style={Styles.container}>
-      <Card containerStyle={Styles.searchCard}>
+      {/* <Card containerStyle={Styles.searchCard}>
         <Input
           style={Styles.search}
           autoFocus={true}
           leftIcon={{ type: FontAwesome5, name: "search" }}
         />
-      </Card>
+      </Card> */}
       <Text style={Styles.txtCtg}>Kategori Matkul</Text>
-      <View style={Styles.cardStyle}>
+      <ScrollView contentContainerStyle={Styles.cardStyle}>
+        <CardHome src={attr.book} bookTitle="PEND AGAMA" onPress={()=>toTeacherPage('Pend Agama')}/>
         <CardHome src={attr.book} bookTitle="Bahasa Inggris" onPress={()=>toTeacherPage('Bahasa Inggris')} />
         <CardHome src={attr.book} bookTitle="Bahasa Indonesia" onPress={()=>toTeacherPage('Bahasa Indonesia')} />
         <CardHome src={attr.book} bookTitle="IPA" onPress={()=>toTeacherPage('IPA')} />
         <CardHome src={attr.book} bookTitle="IPS" onPress={()=>toTeacherPage('IPS')} />
         <CardHome src={attr.book} bookTitle="Sejarah" onPress={()=>toTeacherPage('Sejarah')} />
-        <CardHome src={attr.book} bookTitle="PKN" onPress={()=>toTeacherPage('PKN')}/>
-      </View>
+        <CardHome src={attr.book} bookTitle="PPKN" onPress={()=>toTeacherPage('PPKN')}/>
+        <CardHome src={attr.book} bookTitle="MATEMATIKA" onPress={()=>toTeacherPage('Matematika')}/>
+        <CardHome src={attr.book} bookTitle="PEND JASMANI" onPress={()=>toTeacherPage('Jasmani')}/>
+        <CardHome src={attr.book} bookTitle="INFORMATIKA" onPress={()=>toTeacherPage('Informatika')}/>
+        <CardHome src={attr.book} bookTitle="PENG KARAKTER" onPress={()=>toTeacherPage('Peng Karakter')}/>
+      </ScrollView>
     </View>
   );
 }
@@ -89,9 +94,9 @@ const Styles = StyleSheet.create({
   },
   cardStyle: {
     flexDirection: "row",
-    borderRadius: 10,
     flexWrap: "wrap",
-    margin: 25,
+    justifyContent:'center',
+    alignSelf:'center'
   },
   search: {
     height: 40,
@@ -106,6 +111,7 @@ const Styles = StyleSheet.create({
     fontWeight: "bold",
     textTransform: "uppercase",
     top: 10,
+    marginBottom:10
   },
   verticalScroll: {
     height: 300,

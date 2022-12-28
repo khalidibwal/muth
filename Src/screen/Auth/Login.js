@@ -43,10 +43,14 @@ export default function Login() {
         )
         .then((response) => { 
           if (response.status === 200) {
-            // console.warn(response.data)           
-            navigation.navigate('home',{
-             myToken: response.data.authToken,
-            },)
+            console.warn(response.data)           
+            // navigation.navigate('home',{
+            //  myToken: response.data.authToken,
+            // },)
+            navigation.push('home',{
+              screen: 'homescreen',
+              params : {myToken: response.data.authToken}
+            })
           }
         })
         .catch((error)=> alert(error,'Wrong Username or Password'))
